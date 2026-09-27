@@ -12,5 +12,5 @@ def make_analyst(llm: object) -> Agent:
         llm=llm,
         verbose=True,
         allow_delegation=False,
-        max_iter=4,
+        max_iter=2,
     )
