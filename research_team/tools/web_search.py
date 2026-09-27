@@ -22,7 +22,8 @@ def search_web(query: str) -> str:
     results = response.get("results", [])
     if not results:
         return "No web results found. Try a more specific query."
-    return "\n\n".join(
-        f"Title: {item.get('title', 'Untitled')}\nURL: {item.get('url', '')}\nExcerpt: {item.get('content', '')}"
-        for item in results
+   return "\n\n".join(
+    f"Title: {item.get('title', 'Untitled')}\nURL: {item.get('url', '')}\nExcerpt: {item.get('content', '')[:550]}"
+    for item in results
+)
     )
