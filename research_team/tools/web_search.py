@@ -25,9 +25,13 @@ def search_web(query: str) -> str:
     if not results:
         return "No web results found. Try a more specific query."
 
-    return "\n\n".join(
-        f"Title: {item.get('title', 'Untitled')}\n"
-        f"URL: {item.get('url', '')}\n"
-        f"Excerpt: {item.get('content', '')[:550]}"
-        for item in results
-    )
+    formatted_results = []
+    for item in results:
+        title = item.get("title", "Untitled")
+        url = item.get("url", "")
+        excerpt = item.get("content", "")[:550]
+        formatted_results.append(
+            f"Title: {title}\nURL: {url}\nExcerpt: {excerpt}"
+        )
+
+    return "\n\n".join(formatted_results)
