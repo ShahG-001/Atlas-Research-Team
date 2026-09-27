@@ -16,7 +16,7 @@ def get_llm() -> LLM:
             )
 
     return LLM(
-        model="gemini/gemini-3.8-flash",
+        model="model="gemini/gemini-2.5-flash",
         api_key=api_key,
         max_output_tokens=1200,
     )
