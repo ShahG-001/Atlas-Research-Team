@@ -5,7 +5,7 @@ def research_task(agent, question: str) -> Task:
     return Task(
         description=(
             "Research this question using your web search tool: {question}\n"
-            "Find 5-8 useful findings. Prefer primary/authoritative sources and recent material where relevant. "
+           "Find at most 4 useful findings. Prefer primary/authoritative sources and recent material where relevant. "
             "For every finding, include the source title, URL, and what it supports. Do not make unsupported claims."
         ),
         expected_output="A concise evidence list with source titles, URLs, and relevant excerpts.",
