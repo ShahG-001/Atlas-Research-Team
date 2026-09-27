@@ -13,4 +13,7 @@ def get_llm() -> LLM:
         model="groq/openai/gpt-oss-120b",
         api_key=api_key,
         temperature=0.2,
+        max_tokens=1200,
+max_retries=3,
+timeout=90,
     )
