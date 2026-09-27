@@ -5,12 +5,13 @@ from crewai import LLM
 
 
 def get_llm() -> LLM:
-    """Create a CrewAI LLM using Groq's LiteLLM provider interface."""
+    """Create a CrewAI LLM using Groq."""
     api_key = os.getenv("GROQ_API_KEY") or st.secrets.get("GROQ_API_KEY", "")
     if not api_key:
         raise RuntimeError("GROQ_API_KEY is missing from Streamlit Secrets.")
+
     return LLM(
-        model="model="groq/qwen/qwen3.8-27b",",
+        model="groq/qwen/qwen3.8-27b",
         api_key=api_key,
         temperature=0.2,
         max_tokens=1200,
