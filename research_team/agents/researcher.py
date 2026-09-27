@@ -12,5 +12,5 @@ def make_researcher(llm: object) -> Agent:
         llm=llm,
         verbose=True,
         allow_delegation=False,
-        max_iter=5,
+        max_iter=2,
     )
