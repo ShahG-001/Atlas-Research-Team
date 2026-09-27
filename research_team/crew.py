@@ -1,3 +1,6 @@
+import crewai.llms.cache as crewai_cache
+
+crewai_cache.mark_cache_breakpoint = lambda message: message
 import streamlit as st
 from crewai import Crew, Process
 
