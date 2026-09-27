@@ -4,7 +4,7 @@ import streamlit as st
 from crewai import LLM
 
 
-def make_llm() -> LLM:
+def get_llm() -> LLM:
     api_key = os.getenv("GEMINI_API_KEY")
 
     if not api_key:
