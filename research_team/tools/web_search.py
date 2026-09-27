@@ -15,7 +15,7 @@ def search_web(query: str) -> str:
     response = client.search(
         query=query,
         search_depth="advanced",
-        max_results=5,
+        max_results=3,
         include_answer=False,
         include_raw_content=False,
     )
