@@ -4,17 +4,19 @@ import streamlit as st
 from crewai import LLM
 
 
-def get_llm() -> LLM:
-    """Create a CrewAI LLM using Groq."""
-    api_key = os.getenv("GROQ_API_KEY") or st.secrets.get("GROQ_API_KEY", "")
+def make_llm() -> LLM:
+    api_key = os.getenv("GEMINI_API_KEY")
+
     if not api_key:
-        raise RuntimeError("GROQ_API_KEY is missing from Streamlit Secrets.")
+        try:
+            api_key = st.secrets["GEMINI_API_KEY"]
+        except (FileNotFoundError, KeyError):
+            raise RuntimeError(
+                "Add GEMINI_API_KEY to your Streamlit Cloud Secrets."
+            )
 
     return LLM(
-        model="openai/gpt-oss-20b",
+        model="gemini/gemini-3.8-flash",
         api_key=api_key,
-        temperature=0.2,
-        max_tokens=1200,
-        max_retries=3,
-        timeout=90,
+        max_output_tokens=1200,
     )
